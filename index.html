@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Online Park — MVP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🌍 Online Park</div>
+    <nav>
+      <button data-view="explore">Explore</button>
+      <button data-view="search">Search</button>
+      <button data-view="help">AI Help</button>
+      <button data-view="contact">Contact</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="explore" class="view active">
+      <div class="hero">
+        <div>
+          <span class="pill">ARTIFICIAL SOCIAL ENVIRONMENT</span>
+          <h1>Enter a digital park built around your interests.</h1>
+          <p>Explore virtual places, discover activities, meet communities, and receive recommendations based on what you choose.</p>
+          <button class="primary" onclick="showView('search')">Start a search — 10 Birr</button>
+        </div>
+        <div class="park-scene" aria-label="Artificial park scene">
+          <div class="sun">☀️</div>
+          <div class="mountain m1"></div><div class="mountain m2"></div>
+          <div class="tree t1">🌳</div><div class="tree t2">🌲</div><div class="tree t3">🌴</div>
+          <div class="lake"></div>
+          <div class="path"></div>
+          <div class="bench">🪑</div>
+          <div class="person p1">🧑</div><div class="person p2">🧑‍💻</div>
+        </div>
+      </div>
+
+      <h2>Featured Parks</h2>
+      <div class="grid">
+        <article class="card"><div class="emoji">🏙️</div><h3>City Discovery</h3><p>Explore places, culture, language and activities.</p></article>
+        <article class="card"><div class="emoji">🎓</div><h3>Learning Park</h3><p>Find study communities, resources and events.</p></article>
+        <article class="card"><div class="emoji">🎮</div><h3>Recreation Park</h3><p>Games, challenges and interactive experiences.</p></article>
+        <article class="card"><div class="emoji">🤝</div><h3>Community Park</h3><p>Discover communities based on shared interests.</p></article>
+      </div>
+    </section>
+
+    <section id="search" class="view">
+      <div class="panel">
+        <span class="pill">10 BIRR / SEARCH</span>
+        <h2>Find your experience</h2>
+        <p class="muted">This MVP demonstrates the flow. It does not process real payments.</p>
+        <form id="searchForm">
+          <label>Full name<input id="name" required placeholder="Your full name"></label>
+          <label>Email or phone<input id="contactInput" required placeholder="Email or phone"></label>
+          <label>Country
+            <select id="country"><option>Ethiopia</option><option>Kenya</option><option>Rwanda</option><option>Other</option></select>
+          </label>
+          <label>Language
+            <select id="language"><option>English</option><option>Amharic</option><option>Afaan Oromo</option><option>Other</option></select>
+          </label>
+          <label>What are you looking for?
+            <input id="appetite" required placeholder="e.g. learning, recreation, culture, community">
+          </label>
+          <button class="primary" type="submit">Continue to payment</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="payment" class="view">
+      <div class="panel">
+        <span class="pill">DEMO PAYMENT</span>
+        <h2>Search fee: 10 Birr</h2>
+        <p>Production version should connect to an approved payment provider or merchant API. Do not rely on a public personal account number as the production payment mechanism.</p>
+        <div class="payment-box">
+          <strong>Payment status:</strong> <span id="paymentStatus">Not paid</span>
+          <button class="primary" onclick="completeDemoPayment()">Simulate successful payment</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="view">
+      <div class="panel">
+        <span class="pill">PERSONALIZED RESULT</span>
+        <h2 id="resultTitle">Your Park</h2>
+        <p id="resultText"></p>
+        <div id="resultCards" class="grid"></div>
+        <button class="secondary" onclick="showView('search')">New search</button>
+      </div>
+    </section>
+
+    <section id="help" class="view">
+      <div class="panel">
+        <span class="pill">AI ASSISTANT</span>
+        <h2>Park AI</h2>
+        <p>Ask for help choosing a park, understanding a result, planning an activity, or learning how the platform works.</p>
+        <div id="chat" class="chat"></div>
+        <div class="chat-row"><input id="chatInput" placeholder="Ask Park AI..."><button class="primary" onclick="askAI()">Send</button></div>
+      </div>
+    </section>
+
+    <section id="contact" class="view">
+      <div class="panel">
+        <span class="pill">CONTACT</span>
+        <h2>Online Park Support</h2>
+        <p>Phone: <a href="tel:+251905304434">+251 905 304 434</a></p>
+        <p class="muted">For production, add a dedicated support email, privacy policy, terms, refund policy, and business contact details.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>Online Park MVP • Prototype only • No real payment is processed</footer>
+  <script src="app.js"></script>
+</body>
+</html>
